@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Common Test</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="https://rawgit.com/xianxin/xianxingjs/master/utils.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			div { margin-bottom: 25px; margin-top: 15px; }
+			input {margin-top : 10px; margin-bottom: 10px; }
+		</style>
+	</head>
+	<body>
+		<div>
+			当前日期格式化 : 2014年5月13日 17:38:59
+			<br />
+			<input type="button" onclick="xianxingjs_jsfunc_Format()" value="格式化" />
+		</div>
+		
+		<div>
+			长度计数
+			<br />
+			<input type="text" id="CountMe" />
+			<input type="button" onclick="xianxingjs_jsfunc_CountLength()" value="计数">
+		</div>
+	</body>
+	<script type="text/javascript" charset="utf-8">
+		function xianxingjs_jsfunc_Format(){
+			var today = new Date();
+			alert("现在是" + today.Format("yyyy年M月d日 hh:mm:ss"));
+		}
+		
+		function xianxingjs_jsfunc_CountLength(){
+			var text = $('#CountMe').val();
+			alert("长度为" + text.CountLength());
+		}
+	</script>
+</html>
