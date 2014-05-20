@@ -20,6 +20,24 @@ Date.prototype.Format = function (fmt) { //author: meizz
 }
 
 /*-jsfct-
+ * function IndexOf的IE7兼容版
+ * parameter 元素(obj)
+ * example [var array = ["1","2","3"]; var index = array.indexOf("2");]
+ */
+if (!Array.prototype.indexOf){
+  Array.prototype.indexOf = function(elt /*, from*/){
+    var len = this.length >>> 0;
+    var from = Number(arguments[1]) || 0;
+    from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+    if (from < 0) from += len;
+    for (; from < len; from++){
+      if (from in this && this[from] === elt) return from;
+    }
+    return -1;
+  };
+}
+
+/*-jsfct-
  * function 长度计数
  * parameter 
  * example [var str = "中文+English"; var length = str.CountLength();]
