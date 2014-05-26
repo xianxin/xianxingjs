@@ -85,10 +85,10 @@ function isTrueValidateCodeBy18IdCard(a_idCard) {
     a_idCard[17] = 10;
   }
   for ( var i = 0; i < 17; i++) {
-    sum += Wi[i] * a_idCard[i];
+    sum += fctIdCardValidate_Wi[i] * a_idCard[i];
   }
   valCodePosition = sum % 11;
-  if (a_idCard[17] == ValideCode[valCodePosition]) {
+  if (a_idCard[17] == fctIdCardValidate_ValideCode[valCodePosition]) {
     return true;
   } else {
     return false;

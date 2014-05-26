@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>Common Test</title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="https://rawgit.com/xianxin/xianxingjs/master/utils.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://rawgit.com/xianxin/xianxingjs/master/common/utils.js" type="text/javascript" charset="utf-8"></script>
 		
 		<style type="text/css">
 			div { margin-bottom: 25px; margin-top: 15px; }
@@ -24,6 +24,13 @@
 			<input type="text" id="CountMe" />
 			<input type="button" onclick="xianxingjs_jsfunc_CountLength()" value="计数">
 		</div>
+		
+		<div>
+			身份证号码验证
+			<br />
+			<input type="text" id="IdCardNo" />
+			<input type="button" onclick="xianxingjs_jsfunc_IdCardValidate()" value="身份证验证" />
+		</div>
 	</body>
 	<script type="text/javascript" charset="utf-8">
 		function xianxingjs_jsfunc_Format(){
@@ -34,6 +41,11 @@
 		function xianxingjs_jsfunc_CountLength(){
 			var text = $('#CountMe').val();
 			alert("长度为" + text.CountLength());
+		}
+		
+		function xianxingjs_jsfunc_IdCardValidate(){
+			var text = $("#IdCardNo").val();
+			alert("身份证号码 "+text + IdCardValidate(text) ? " 有效" : " 无效");
 		}
 	</script>
 </html>
