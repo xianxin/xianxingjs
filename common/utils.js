@@ -1,4 +1,4 @@
-/*-jsfct-
+/*-jsfct- Format
  * function 格式化日期
  * parameter 格式(yyyy-MM-dd hh:mm:ss)
  * example [var today = new Date(); var format = today.Format("yyyy-MM-dd");]
@@ -19,7 +19,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
   return fmt;
 }
 
-/*-jsfct-
+/*-jsfct- indexOf
  * function IndexOf的IE7兼容版
  * parameter 元素(obj)
  * example [var array = ["1","2","3"]; var index = array.indexOf("2");]
@@ -37,7 +37,7 @@ if (!Array.prototype.indexOf){
   };
 }
 
-/*-jsfct-
+/*-jsfct- CountLength
  * function 长度计数
  * parameter 
  * example [var str = "中文+English"; var length = str.CountLength();]
@@ -51,3 +51,83 @@ String.prototype.CountLength = function () {
   }
   return 0;
 }
+
+/* global variable 4 function IdCardValidate : 加权因子 */
+var fctIdCardValidate_Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];
+/* global variable 4 function IdCardValidate : 身份证验证位值.10代表X */
+var fctIdCardValidate_ValideCode = [ 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];
+
+/*-jsfct- IdCardValidate
+ * function 身份证验证
+ * parameter 身份证号码(idCard)
+ * example IdCardValidate("41102319860910****")
+ */
+function IdCardValidate(idCard) {
+  idCard = trim(idCard.replace(/ /g, ""));
+  if (idCard.length == 15) {
+    return isValidityBrithBy15IdCard(idCard);
+  } else if (idCard.length == 18) {
+    var a_idCard = idCard.split("");
+    if(isValidityBrithBy18IdCard(idCard)&&isTrueValidateCodeBy18IdCard(a_idCard)){
+      return true;
+    }else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+/*-jssubfct-*/
+function isTrueValidateCodeBy18IdCard(a_idCard) {
+  var sum = 0;
+  if (a_idCard[17].toLowerCase() == 'x') {
+    a_idCard[17] = 10;
+  }
+  for ( var i = 0; i < 17; i++) {
+    sum += Wi[i] * a_idCard[i];
+  }
+  valCodePosition = sum % 11;
+  if (a_idCard[17] == ValideCode[valCodePosition]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/*-jssubfct-*/
+function isValidityBrithBy18IdCard(idCard18){
+  var year =  idCard18.substring(6,10);
+  var month = idCard18.substring(10,12);
+  var day = idCard18.substring(12,14);
+  var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));
+
+  if(temp_date.getFullYear()!=parseFloat(year)
+    ||temp_date.getMonth()!=parseFloat(month)-1
+    ||temp_date.getDate()!=parseFloat(day)){
+    return false;
+  }else{
+    return true;
+  }
+}
+
+/*-jssubfct-*/
+function isValidityBrithBy15IdCard(idCard15){   
+  var year =  idCard15.substring(6,8);
+  var month = idCard15.substring(8,10);
+  var day = idCard15.substring(10,12);
+  var temp_date = new Date(year,parseFloat(month)-1,parseFloat(day));
+
+  if(temp_date.getYear()!=parseFloat(year)
+    ||temp_date.getMonth()!=parseFloat(month)-1
+    ||temp_date.getDate()!=parseFloat(day)){
+      return false;
+  }else{
+    return true;
+  }
+}
+
+/*-jsfct1word-trim*/
+function trim(str) {   
+    return str.replace(/(^\s*)|(\s*$)/g, "");   
+}  
