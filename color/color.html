@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: scroll">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css"/>
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		
+		<!-- ref : common.js -->
+		<script src="https://rawgit.com/xianxin/xianxingjs/master/common/utils.js" type="text/javascript" charset="utf-8"></script>
+		
+		<title>html裴涩琪</title>
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<style type="text/css">
+			.well{
+				background: transparent;
+			}
+			.space-4{
+				margin: 4px 0 3px;
+				max-height: 1px;
+				min-height: 1px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<section id="typeahead">
+				<div class="page-header">
+					<h1> html配色器 <small> by xianxing basedon boostrap 3.0 & colorpicker 2.0 </small></h1>
+				</div>
+
+				<div>
+					一般颜色选择
+				</div><br />
+				<div class="well input-group col-sm-4" id="formal_input" style="float: none">
+					<input type="text" value="" class="form-control" />
+					<span class="input-group-addon"><i></i></span>
+				</div>
+
+				<div class="mainContent">
+
+					<!--标签组-->
+					<ul id="contentList" class="nav nav-tabs">
+						<li>
+							<a data-toggle="tab" href="#t_backgroundColor">
+								BackgroundColor
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#t_fontColor">
+								FontColor
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#t_fontColorWithinBackgroundColor">
+								FontInBackground
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#t_fontColorWithinMBARecruitFaq">
+								MbaRecruitFaq
+							</a>
+						</li>
+					</ul>
+					<!--end:标签组-->
+
+					<!--页面组-->
+					<div id="tabContent" class="tab-content" style="padding: 10px;">
+						<div id="t_backgroundColor" class="tab-pane panel active "  style="min-height: 500px;padding:20px;">
+							<div class="well col-sm-3">
+								<a href="#" class="btn small demo col-xs-7" id="backgroundColor" data-color="rgb(255,255,255)">
+									设置背景颜色
+								</a>
+								<a id="getBackgroundColor_" class="btn small demo col-xs-4">
+									#ffffff
+								</a>
+							</div>
+							&nbsp;
+						</div>
+
+						<div id="t_fontColor" class="tab-pane panel" style="min-height: 500px;padding:20px;">
+							<div class="well col-sm-3">
+								<a href="#" class="btn small demo col-xs-7" id="fontColor" data-color="rgb(255,255,255)">
+									设置文字颜色
+								</a>
+								<a id="getFontColor_" class="btn small demo col-xs-4">
+									#000000
+								</a>
+							</div>
+							&nbsp;
+							<p id="fontColorP" class="panel-heading" style="color:#000000;margin-top: 100px;margin-left: 200px;">
+								这是一段效果展示文字
+							</p>
+						</div>
+						
+						<div id="t_fontColorWithinBackgroundColor" class="tab-pane panel" style="min-height: 500px;padding:20px;">
+							<div class="well col-sm-3 panel-group">
+								<a href="#" class="btn small demo col-xs-7" id="fontColorWBC" data-color="rgb(255,255,255)">
+									设置文字颜色
+								</a>
+								<a id="getFontColor_WBC_" class="btn small demo col-xs-4">
+									#000000
+								</a>
+							</div>
+							
+							<div class="well col-sm-3 col-xs-offset-1 panel-group">
+								<a href="#" class="btn small demo col-xs-7" id="backgroundColorWBC" data-color="rgb(255,255,255)">
+									设置背景颜色
+								</a>
+								<a id="getBackgroundColor_WBC_" class="btn small demo col-xs-4">
+									#ffffff
+								</a>
+							</div>
+							&nbsp;
+							<p id="fontColorWBCP" class="panel-heading" style="color:#000000;margin-top: 100px;margin-left: 200px;">
+								这是一段效果展示文字
+							</p>
+						</div>
+						
+						<div id="t_fontColorWithinMBARecruitFaq" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-sjtu-mba-recruit-faq.png');">
+							<div class="well col-sm-3">
+								<a href="#" class="btn small demo col-xs-7" id="fontColorMBARF" data-color="rgb(255,255,255)">
+									设置文字颜色
+								</a>
+								<a id="getFontColor_MBARF_" class="btn small demo col-xs-4">
+									#000000
+								</a>
+							</div>
+							&nbsp;
+							<p id="fontColorMBARFP" class="panel-heading" style="color:#000000;margin-top: 446px;margin-left: 410px;line-height: 165%;;">
+								答： 为加大对优秀拔尖人才的录取力度，交大安泰MBA项目从2008年全国首创推出了该招生方案。该招生改革主要目的是让那些真正具有管理潜质但笔试能力相对较差的考生有一个绿色通道可以进来。今年，交大安泰MBA将进一步调整金鹰计划，更加强调考生的综合素质和能力，淡化笔试成绩要求，加大提前批面试的力度，全面实现“国家线录取”的招生政策。具体政策请参见“金鹰计划”。 
+							</p>
+						</div>
+						
+					</div>
+					<!--end:页面组-->
+					
+				</div>
+
+			</section>
+		</div>
+
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-colorpicker.js"></script>
+		<script>
+			var bodyStyle = $('#t_backgroundColor')[0].style;
+			var bodyStyleWBC = $('#t_fontColorWithinBackgroundColor')[0].style;
+
+			$(function() {
+				/**/
+				$("#formal_input").colorpicker();
+
+				/**/
+				$("#contentList").click(function(e) {
+					e.preventDefault();
+					$(this).tab('show');
+				});
+				$('#contentList a:first').tab('show');
+
+
+                /*----------------------------------------------------------------------*/
+				$('#backgroundColor').colorpicker({
+					color : bodyStyle.backgroundColor
+				}).on('changeColor', function(ev) {
+					var colorHex = ev.color.toHex();
+					bodyStyle.backgroundColor = colorHex;
+					$("#getBackgroundColor_").html(colorHex);
+				});
+				$("#getBackgroundColor_").click(function() {
+					var colorHex = trim($(this).html());
+					window.prompt("复制: Ctrl+C, Enter", colorHex);
+				});
+				
+				/*----------------------------------------------------------------------*/
+				$('#fontColor').colorpicker({
+					color : bodyStyle.backgroundColor
+				}).on('changeColor', function(ev) {
+					var colorHex = ev.color.toHex();
+					$("#getFontColor_").html(colorHex);
+					$("#fontColorP").css("color",colorHex);
+				});
+				$("#getFontColor_").click(function() {
+					var colorHex = trim($(this).html());
+					window.prompt("复制: Ctrl+C, Enter", colorHex);
+				});
+				
+				/*--------------------------------------*/
+				$('#backgroundColorWBC').colorpicker({
+					color : bodyStyle.backgroundColor
+				}).on('changeColor', function(ev) {
+					var colorHex = ev.color.toHex();
+					bodyStyleWBC.backgroundColor = colorHex;
+					$("#getBackgroundColor_WBC_").html(colorHex);
+				});
+				$("#getBackgroundColor_WBC_").click(function() {
+					var colorHex = trim($(this).html());
+					window.prompt("复制: Ctrl+C, Enter", colorHex);
+				});
+				
+				/*--------------------------------------*/
+				$('#fontColorWBC').colorpicker({
+					color : bodyStyle.backgroundColor
+				}).on('changeColor', function(ev) {
+					var colorHex = ev.color.toHex();
+					$("#getFontColor_WBC_").html(colorHex);
+					$("#fontColorWBCP").css("color",colorHex);
+				});
+				$("#getFontColor_WBC_").click(function() {
+					var colorHex = trim($(this).html());
+					window.prompt("复制: Ctrl+C, Enter", colorHex);
+				});
+				
+				/*----------------------------------------------------------------------*/
+				$('#fontColorMBARF').colorpicker({
+					color : bodyStyle.backgroundColor
+				}).on('changeColor', function(ev) {
+					var colorHex = ev.color.toHex();
+					$("#getFontColor_MBARF_").html(colorHex);
+					$("#fontColorMBARFP").css("color",colorHex);
+				});
+				$("#getFontColor_MBARF_").click(function() {
+					var colorHex = trim($(this).html());
+					window.prompt("复制: Ctrl+C, Enter", colorHex);
+				});
+			});
+
+		</script>
+	</body>
+</html>

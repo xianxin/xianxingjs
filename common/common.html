@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<title>Common Test</title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="utils.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://rawgit.com/xianxin/xianxingjs/master/common/utils.js" type="text/javascript" charset="utf-8"></script>
 		
 		<style type="text/css">
@@ -31,6 +32,10 @@
 			<input type="text" id="IdCardNo" />
 			<input type="button" onclick="xianxingjs_jsfunc_IdCardValidate()" value="身份证验证" />
 		</div>
+		
+		<div>
+			<button onclick="checkHtmlTags('<tr></tr><td>')">checkTest</button>
+		</div>
 	</body>
 	<script type="text/javascript" charset="utf-8">
 		function xianxingjs_jsfunc_Format(){
@@ -45,7 +50,7 @@
 		
 		function xianxingjs_jsfunc_IdCardValidate(){
 			var text = $("#IdCardNo").val();
-			alert("身份证号码 "+text + IdCardValidate(text) ? " 有效" : " 无效");
+			alert("身份证号码 "+text + (IdCardValidate(text) ? " 有效" : " 无效"));
 		}
 	</script>
 </html>

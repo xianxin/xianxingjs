@@ -130,4 +130,39 @@ function isValidityBrithBy15IdCard(idCard15){
 /*-jsfct1word-trim*/
 function trim(str) {   
     return str.replace(/(^\s*)|(\s*$)/g, "");   
-}  
+}
+
+/*-jsfct1word-nospace-*/
+function noSpace(str) {
+	return (str.replace(/[\s]+/g,''));
+}
+
+/*-jsfct- checkHtmlTags
+ * function 检测html标签匹配
+ * parameter html
+ * example checkHtmlTags("<td></tr>")
+ */
+function checkHtmlTags(html){
+	if (html == null || html == "") return;
+	
+	var s = noSpace(html).toLowerCase();
+	var arrMinus = new Array('<img>','<input>','<meta>','<hr>');//br link
+	for (var i = 0; i < arrMinus.length; i ++){
+		s = s.replace(arrMinus[i],'');
+	}
+	
+	var arrElement = s.match(/<[/|A-Za-z]+>/ig);
+	var stack = new Array();
+	stack[0] = '#';
+	k = 0;
+	for (var j = 0; j < arrElement.length; j ++){
+		if (('<'+'/'+stack[k].substr(1)) == arrElement[j]){
+			k --;
+			stack.length --;
+		} else {
+			stack[++k] = arrElement[j];
+		}
+		alert(stack[k]);
+	}
+	(stack[k] == "#") ? (document.write("All Mathed")) : (document.write("Some Unmatched"));
+}

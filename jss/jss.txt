@@ -1,0 +1,13 @@
+1.
+http://html5shim.googlecode.com/svn/trunk/html5.js
+让ie低版本识别html5的标签，确保html5新增标签的样式可以正常显示。（abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video）
+
+<head><style>
+article{display:block;border:1px solid red}
+</style></head>
+<body>
+<article>
+<h1>welcome to feimos's blog</h1><p>This is your <span>first time to visit this webSite.</span></p>
+</article>
+</body>
+ie6不会识别article，所以也不会有红色边框。但是如果我们在head中加入一句document.createElement("article");就可以显示了。 html5.js 的原理就是createElement。
