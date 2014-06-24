@@ -1,6 +1,6 @@
-1.
+ï»¿1.
 http://html5shim.googlecode.com/svn/trunk/html5.js
-ÈÃieµÍ°æ±¾Ê¶±ğhtml5µÄ±êÇ©£¬È·±£html5ĞÂÔö±êÇ©µÄÑùÊ½¿ÉÒÔÕı³£ÏÔÊ¾¡££¨abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video£©
+è®©ieä½ç‰ˆæœ¬è¯†åˆ«html5çš„æ ‡ç­¾ï¼Œç¡®ä¿html5æ–°å¢æ ‡ç­¾çš„æ ·å¼å¯ä»¥æ­£å¸¸æ˜¾ç¤ºã€‚ï¼ˆabbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,videoï¼‰
 
 <head><style>
 article{display:block;border:1px solid red}
@@ -10,4 +10,12 @@ article{display:block;border:1px solid red}
 <h1>welcome to feimos's blog</h1><p>This is your <span>first time to visit this webSite.</span></p>
 </article>
 </body>
-ie6²»»áÊ¶±ğarticle£¬ËùÒÔÒ²²»»áÓĞºìÉ«±ß¿ò¡£µ«ÊÇÈç¹ûÎÒÃÇÔÚheadÖĞ¼ÓÈëÒ»¾ädocument.createElement("article");¾Í¿ÉÒÔÏÔÊ¾ÁË¡£ html5.js µÄÔ­Àí¾ÍÊÇcreateElement¡£
+ie6ä¸ä¼šè¯†åˆ«articleï¼Œæ‰€ä»¥ä¹Ÿä¸ä¼šæœ‰çº¢è‰²è¾¹æ¡†ã€‚ä½†æ˜¯å¦‚æœæˆ‘ä»¬åœ¨headä¸­åŠ å…¥ä¸€å¥document.createElement("article");å°±å¯ä»¥æ˜¾ç¤ºäº†ã€‚ html5.js çš„åŸç†å°±æ˜¯createElementã€‚
+
+
+
+2. jQuery.Hz2Py-min.js
+è¿™ä¸ªtoPinyinå‡½æ•°è¯»è°ƒç”¨è€…çš„.val()ä½œä¸ºè¾“å…¥ã€‚
+<textarea id="content" onblur="$('#show').toPinyin()"></textarea>
+<br>
+<textarea id="show"></textarea>

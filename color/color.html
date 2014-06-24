@@ -65,11 +65,16 @@
 								FontInBackground
 							</a>
 						</li>
-						<li>
-							<a data-toggle="tab" href="#t_fontColorWithinMBARecruitFaq">
-								MbaRecruitFaq
-							</a>
-						</li>
+            <li>
+              <a data-toggle="tab" href="#t_fontColorWithinMBARecruitFaq">
+                MbaRecruitFaq
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#t_feeStandard">
+                FeeStandard
+              </a>
+            </li>
 					</ul>
 					<!--end:标签组-->
 
@@ -126,21 +131,37 @@
 							</p>
 						</div>
 						
-						<div id="t_fontColorWithinMBARecruitFaq" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-sjtu-mba-recruit-faq.png');">
-							<div class="well col-sm-3">
-								<a href="#" class="btn small demo col-xs-7" id="fontColorMBARF" data-color="rgb(255,255,255)">
-									设置文字颜色
-								</a>
-								<a id="getFontColor_MBARF_" class="btn small demo col-xs-4">
-									#000000
-								</a>
-							</div>
-							&nbsp;
-							<p id="fontColorMBARFP" class="panel-heading" style="color:#000000;margin-top: 446px;margin-left: 410px;line-height: 165%;;">
-								答： 为加大对优秀拔尖人才的录取力度，交大安泰MBA项目从2008年全国首创推出了该招生方案。该招生改革主要目的是让那些真正具有管理潜质但笔试能力相对较差的考生有一个绿色通道可以进来。今年，交大安泰MBA将进一步调整金鹰计划，更加强调考生的综合素质和能力，淡化笔试成绩要求，加大提前批面试的力度，全面实现“国家线录取”的招生政策。具体政策请参见“金鹰计划”。 
-							</p>
-						</div>
+            <div id="t_fontColorWithinMBARecruitFaq" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-sjtu-mba-recruit-faq.png');">
+              <div class="well col-sm-3">
+                <a href="#" class="btn small demo col-xs-7" id="fontColorMBARF" data-color="rgb(255,255,255)">
+                  设置文字颜色
+                </a>
+                <a id="getFontColor_MBARF_" class="btn small demo col-xs-4">
+                  #000000
+                </a>
+              </div>
+              &nbsp;
+              <p id="fontColorMBARFP" class="panel-heading" style="color:#000000;margin-top: 446px;margin-left: 410px;line-height: 165%;;">
+                答： 为加大对优秀拔尖人才的录取力度，交大安泰MBA项目从2008年全国首创推出了该招生方案。该招生改革主要目的是让那些真正具有管理潜质但笔试能力相对较差的考生有一个绿色通道可以进来。今年，交大安泰MBA将进一步调整金鹰计划，更加强调考生的综合素质和能力，淡化笔试成绩要求，加大提前批面试的力度，全面实现“国家线录取”的招生政策。具体政策请参见“金鹰计划”。 
+              </p>
+            </div>
 						
+						
+            <div id="t_feeStandard" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-fee-standard.png');">
+              <div class="well col-sm-3" style="margin-top:10px;margin-left:600px;">
+                <a href="#" class="btn small demo col-xs-7" id="fontColorFS" data-color="rgb(255,255,255)">
+                  设置文字颜色
+                </a>
+                <a id="getFontColor_FS_" class="btn small demo col-xs-4">
+                  #000000
+                </a>
+              </div>
+              &nbsp;
+              <p id="fontColorFSP" class="panel-heading" style="position:absolute; color: rgb(0, 0, 0); line-height: 165%; margin-top: 10px; margin-left: 80px;">
+                学院标准中有未提交的费用标准 
+              </p>
+            </div>
+            
 					</div>
 					<!--end:页面组-->
 					
@@ -220,17 +241,30 @@
 				});
 				
 				/*----------------------------------------------------------------------*/
-				$('#fontColorMBARF').colorpicker({
-					color : bodyStyle.backgroundColor
-				}).on('changeColor', function(ev) {
-					var colorHex = ev.color.toHex();
-					$("#getFontColor_MBARF_").html(colorHex);
-					$("#fontColorMBARFP").css("color",colorHex);
-				});
-				$("#getFontColor_MBARF_").click(function() {
-					var colorHex = trim($(this).html());
-					window.prompt("复制: Ctrl+C, Enter", colorHex);
-				});
+        $('#fontColorMBARF').colorpicker({
+          color : bodyStyle.backgroundColor
+        }).on('changeColor', function(ev) {
+          var colorHex = ev.color.toHex();
+          $("#getFontColor_MBARF_").html(colorHex);
+          $("#fontColorMBARFP").css("color",colorHex);
+        });
+        $("#getFontColor_MBARF_").click(function() {
+          var colorHex = trim($(this).html());
+          window.prompt("复制: Ctrl+C, Enter", colorHex);
+        });
+        
+        /*----------------------------------------------------------------------*/
+        $('#fontColorFS').colorpicker({
+          color : bodyStyle.backgroundColor
+        }).on('changeColor', function(ev) {
+          var colorHex = ev.color.toHex();
+          $("#getFontColor_FS_").html(colorHex);
+          $("#fontColorFSP").css("color",colorHex);
+        });
+        $("#getFontColor_FS_").click(function() {
+          var colorHex = trim($(this).html());
+          window.prompt("复制: Ctrl+C, Enter", colorHex);
+        });
 			});
 
 		</script>
