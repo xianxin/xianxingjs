@@ -65,12 +65,17 @@
 								FontInBackground
 							</a>
 						</li>
-            <li>
+						<li>
+						  <a data-toggle="tab" href="#t_backgroundImage">
+						    BackgroundImage
+						  </a>
+						</li>
+            <li style="display: none;">
               <a data-toggle="tab" href="#t_fontColorWithinMBARecruitFaq">
                 MbaRecruitFaq
               </a>
             </li>
-            <li>
+            <li style="display: none;">
               <a data-toggle="tab" href="#t_feeStandard">
                 FeeStandard
               </a>
@@ -131,6 +136,15 @@
 							</p>
 						</div>
 						
+						<div id="t_backgroundImage" class="tab-pane panel" style="min-height: 500px; padding: 20px;">
+						  <div id="beforeBackgroundImage">
+                <button>Paste Image After Clicking Me Or Input Image Url(jpg/png) And Press Enter </button>
+                <input id="bg_img_url" type="text" onkeyup="enterClickedTest(event)" />
+              </div>
+              <div style="width: 100%;height: 15px;">&nbsp;</div>
+						  <img id="bg_img" onclick="Pointed(this,event);return false;" />
+						</div>
+						
             <div id="t_fontColorWithinMBARecruitFaq" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-sjtu-mba-recruit-faq.png');">
               <div class="well col-sm-3">
                 <a href="#" class="btn small demo col-xs-7" id="fontColorMBARF" data-color="rgb(255,255,255)">
@@ -145,7 +159,6 @@
                 答： 为加大对优秀拔尖人才的录取力度，交大安泰MBA项目从2008年全国首创推出了该招生方案。该招生改革主要目的是让那些真正具有管理潜质但笔试能力相对较差的考生有一个绿色通道可以进来。今年，交大安泰MBA将进一步调整金鹰计划，更加强调考生的综合素质和能力，淡化笔试成绩要求，加大提前批面试的力度，全面实现“国家线录取”的招生政策。具体政策请参见“金鹰计划”。 
               </p>
             </div>
-						
 						
             <div id="t_feeStandard" class="tab-pane panel" style="background-repeat:no-repeat;min-height: 900px;padding:20px; background-image: url('img/bg-fee-standard.png');">
               <div class="well col-sm-3" style="margin-top:10px;margin-left:600px;">
@@ -176,6 +189,72 @@
 			var bodyStyle = $('#t_backgroundColor')[0].style;
 			var bodyStyleWBC = $('#t_fontColorWithinBackgroundColor')[0].style;
 
+      var point1 = [0,0];
+      var point2 = [0,0];
+      
+      function pointSet(obj){
+        try {
+          return (obj.length == 0 && obj[0] == 0 && obj[1] == 0);
+        }catch(e){
+          return false;
+        }
+      }
+      
+      // example url
+      // http://s18.mogucdn.com/b7/pic/140505/17wnkx_kqzfs4sdozbgovsugfjeg5sckzsew_450x600.jpg_468x468.jpg
+      // http://imgt9.bdstatic.com/it/u=2,3306810621&fm=19&gp=0.jpg
+      function getBase64FromImageUrl(url){
+        if (url == "") return;
+        var img = new Image();
+        // try this .
+        img.setAttribute("crossOrigin","anonymous");
+        img.onload = function(){
+          var canvas = document.createElement("canvas");
+          canvas.width = this.width;
+          canvas.height = this.height;
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(this,0,0);
+          var dataUrl = canvas.toDataURL("image/png");
+          alert(dataUrl.replace(/^data:image\/(png|jpg);base64,/,""));
+        }
+        img.src = url;
+      }
+      
+      function enterClickedTest(event){
+        if (event.keyCode == 13 || event.keyCode == 108){
+          var url = $("#bg_img_url").val()
+          if (url){
+            $("#bg_img").attr("src",url);
+            
+            getBase64FromImageUrl(url);
+          }
+        }
+      }
+      
+      function Pointed(obj,event){
+        var left = $(obj).offset().left;
+        var top = $(obj).offset().top;
+        
+        var offsetLeft = event.pageX - left;
+        var offsetRight = event.pageY - top;
+        
+        if (!pointSet(point1)){
+          point1[0] = offsetLeft;
+          point1[1] = offsetRight;
+        } else {
+          // pres
+          point2[0] = offsetLeft;
+          point2[1] = offsetRight;
+          
+          //process
+          alert("getting the color list if not for joking !");
+          
+          // post
+          point1 = [0,0];
+          point2 = [0,0];
+        }
+      }
+      
 			$(function() {
 				/**/
 				$("#formal_input").colorpicker();
@@ -188,7 +267,7 @@
 				$('#contentList a:first').tab('show');
 
 
-                /*----------------------------------------------------------------------*/
+        /*----------------------------------------------------------------------*/
 				$('#backgroundColor').colorpicker({
 					color : bodyStyle.backgroundColor
 				}).on('changeColor', function(ev) {

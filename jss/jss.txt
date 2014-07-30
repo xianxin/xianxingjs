@@ -19,3 +19,12 @@ ie6不会识别article，所以也不会有红色边框。但是如果我们在h
 <textarea id="content" onblur="$('#show').toPinyin()"></textarea>
 <br>
 <textarea id="show"></textarea>
+
+
+
+3. selectivizr.js
+ie6,7,8 支持nth-child,first-child,nth-of-type
+<script type="text/javascript" src="@selectivizr.js"></script>
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script type="text/javascript" src="selectivizr.js"></script>
+<![endif]--> 
