@@ -6,4 +6,4 @@ ref !!! http://rawgit.com/
 
 
 dev
-https://rawgit.com/xianxin/xianxingjs/master/common/utils.js
+https://cdn.jsdelivr.net/gh/xianxin/xianxingjs/common/utils.js
